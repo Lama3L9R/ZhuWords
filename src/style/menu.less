@@ -1,0 +1,248 @@
+.menu-control, .menu {
+  padding-left: 5vh;
+
+  opacity: 1;
+  color: var(--key);
+
+  font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+  body.animation-enabled & {
+    transition: color 0.3s, opacity 0.3s, transform 0.3s;
+  }
+  &.hidden {
+    transform: translateX(-5vh);
+    pointer-events: none;
+
+    opacity: 0;
+  }
+}
+.menu-control {
+  position: fixed;
+  top: 26vh;
+  right: 0;
+  left: 0;
+
+  >.path, >.back {
+    transform: scaleX(1.2);
+    transform-origin: 0;
+  }
+  >.path {
+    position: relative;
+
+    height: 2vh;
+    margin-bottom: 0.3vh;
+    padding-left: 3.5vh;
+
+    font-size: 2vh;
+    line-height: 2vh;
+    svg {
+      position: absolute;
+
+      width: 1vh;
+      height: 1vh;
+
+      transform: scale(2.6) translate(-0.8vh, 0.2vh);
+
+      path {
+        fill: var(--key);
+        body.animation-enabled & {
+          transition: fill 0.3s;
+        }
+      }
+    }
+    >span {
+      display: inline-block;
+
+      transform: translateX(0);
+
+      body.animation-enabled & {
+        transition: opacity 0.3s, transform 0.3s, left 0.3s;
+      }
+      span {
+        opacity: 0.3;
+      }
+      span, a {
+        margin-right: 0.4vh;
+      }
+      &.pre-entering {
+        transform: translateX(10px);
+
+        opacity: 0;
+      }
+      &.exiting {
+        position: absolute;
+
+        opacity: 0;
+        &.first {
+          body.animation-enabled & {
+            transition: opacity 0.05s, transform 0.3s, left 0.3s;
+            transition-delay: 5s, 0s, 0s;
+          }
+        }
+      }
+    }
+  }
+  >.back {
+    margin: 0.8vh 0 0.8vh 0.5vh;
+
+    font-size: 5vh;
+    line-height: 5vh;
+
+    &::before {
+      position: absolute;
+      top: 1vh;
+      right: calc(100% + 0.8vh);
+
+      content: '\25C0\FE0E';
+
+      font-size: 3vh;
+      line-height: 3vh;
+    }
+  }
+}
+.menu {
+  position: fixed;
+  top: 35vh;
+  right: 0;
+  bottom: 2vh;
+  left: 0;
+
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+
+  &.main {
+    top: 28vh;
+    >.flex {
+      >div:not(.force-small), >a:not(.force-small) {
+        margin: 0.4vh 0 0.8vh 0.5vh;
+
+        font-size: 5vh;
+        line-height: 5vh;
+        &.button {
+          .main.menu &::before {
+            top: 1vh;
+            right: calc(100% + 0.8vh);
+
+            font-size: 3vh;
+            line-height: 3vh;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    overflow-y: auto;
+  }
+  @media (min-width: 901px) {
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: wrap;
+  }
+
+  >.flex {
+    transform: scaleX(1.2);
+    transform-origin: 0;
+
+    @media (max-width: 900px) {
+      width: calc((100vw - 8vh) / 1.2);
+    }
+    @media (min-width: 901px) {
+      max-width: 380px;
+      margin-right: 120px;
+      padding-right: 30px;
+    }
+
+    >div, >a {
+      margin: 0.2vh 0 0.2vh 0.5vh;
+
+      font-size: 3vh;
+      line-height: 3.2vh;
+      &.button {
+        &::before {
+          position: absolute;
+          top: 0.5vh;
+          right: calc(100% + 0.8vh);
+
+          font-size: 2vh;
+          line-height: 2vh;
+        }
+      }
+    }
+
+    .button.icon {
+      &::before {
+        transform: translate(0.4vh, 0.03em) scaleX(0.833);
+
+        font-family: 'Material Icons';
+        font-size: 1.1em !important;
+      }
+      &.link::before {
+        content: 'link';
+      }
+      &.equalizer::before {
+        content: 'equalizer';
+      }
+      &.folder::before {
+        content: 'folder_open';
+      }
+      &.folder:hover::before {
+        content: 'folder';
+      }
+      &.file::before {
+        content: 'insert_drive_file';
+      }
+      &.game::before {
+        content: 'games';
+      }
+      &.notification::before {
+        content: 'notifications_active';
+      }
+      &.list::before {
+        content: 'list';
+      }
+      &.calender::before {
+        content: 'today';
+      }
+      &.history::before {
+        content: 'history';
+      }
+      &.clear::before {
+        content: 'clear';
+      }
+      &.person::before {
+        content: 'person';
+      }
+      &.icon-tag::before {
+        content: 'sell';
+      }
+    }
+    .button.selectable::before {
+      content: '>';
+      transform: translateX(-50%);
+
+      opacity: 0;
+      body.animation-enabled & {
+        transition: opacity 0.3s, transform 0.3s;
+      }
+    }
+    .button.selectable.selected::before {
+      transform: none;
+
+      opacity: 1;
+    }
+
+    .item-side {
+      display: inline-block;
+
+      opacity: 0.6;
+    }
+
+    .prepend .item-side {
+      padding-right: 5px;
+    }
+    .append .item-side {
+      padding-left: 5px;
+    }
+  }
+}

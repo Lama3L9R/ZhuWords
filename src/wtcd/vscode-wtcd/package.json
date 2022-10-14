@@ -1,0 +1,38 @@
+{
+    "name": "vscode-wtcd",
+    "displayName": "vscode-wtcd",
+    "publisher": "WTCD",
+    "description": "",
+    "version": "1.11.0",
+    "engines": {
+        "vscode": "^1.38.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "wtcd",
+                "aliases": [
+                    "Wearable Technology's Conditional Document (WTCD)",
+                    "wtcd"
+                ],
+                "extensions": [
+                    ".wtcd"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "wtcd",
+                "scopeName": "source.wtcd",
+                "path": "./syntaxes/wtcd.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.markdown": "text.html.markdown"
+                }
+            }
+        ]
+    }
+}

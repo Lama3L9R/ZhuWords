@@ -1,0 +1,47 @@
+.preloader {
+  >.preloader-paragraph, >.preloader-title {
+    margin-top: 0.6em;
+    margin-bottom: 1.2em;
+  }
+  >.preloader-title {
+    .flash {
+      height: 3.5em;
+    }
+  }
+  >.preloader-paragraph {
+    .flash {
+      height: 1em;
+    }
+  }
+  .flash-container {
+    overflow-x: hidden;
+    width: 100%;
+    margin-bottom: 0.4em;
+    >.flash {
+      body.animation-enabled & {
+        animation: flash 2s linear infinite;
+      }
+      width: 200%;
+      background: linear-gradient(
+        90deg,
+        var(--key-opacity-014) 0%,
+        var(--key-opacity-023) 5%,
+        var(--key-opacity-023) 8%,
+        var(--key-opacity-014) 13%,
+        var(--key-opacity-014) 50%,
+        var(--key-opacity-023) 55%,
+        var(--key-opacity-023) 58%,
+        var(--key-opacity-014) 63%
+      );
+    }
+  }
+}
+
+@keyframes flash {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

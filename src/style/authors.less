@@ -1,0 +1,71 @@
+@import (reference) 'common/button.less';
+
+.content-container>.content .authors {
+  >.outer-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: -0.5em -0.5em 0.3em -0.5em;
+    >div:extend(#common.button all) {
+      display: flex;
+
+      margin: 0.5em !important;
+      padding: 1em !important;
+
+      @media (min-width: 1651px) {
+        flex: 1 0 calc(100% - 1em);
+      }
+
+      @media (min-width: 801px) and (max-width: 1650px) {
+        flex: 1 0 calc((100% - 3em) / 3);
+
+        max-width: calc((100% - 3em) / 3);
+      }
+
+      @media (min-width: 501px) and (max-width: 800px) {
+        flex: 1 0 calc((100% - 2em) / 2);
+
+        max-width: calc((100% - 2em) / 2);
+      }
+
+      @media (max-width: 500px) {
+        flex: 0 1 100%;
+      }
+    }
+    >.author-container {
+      text-align: left;
+      >.avatar {
+        flex: 0 0;
+
+        width: 44px;
+        height: 44px;
+        margin-right: 1em;
+
+        border-radius: 3px;
+      }
+      >.author-role-container {
+        flex: 1;
+        >.role {
+          pointer-events: none;
+
+          opacity: 0.6;
+
+          font-size: 0.8em;
+        }
+        >.name {
+          margin-top: 0.1em;
+
+          font-size: 1.2em;
+        }
+      }
+    }
+    >.reprint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      >div {
+        font-size: 1.5em;
+      }
+    }
+  }
+}

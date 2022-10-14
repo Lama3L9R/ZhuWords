@@ -1,0 +1,63 @@
+@import 'variables.less';
+
+.content-container {
+  position: fixed;
+  z-index: 2;
+
+  overflow-x: hidden;
+
+  height: 100%;
+
+  outline: none;
+  body.animation-enabled & {
+    transition: width 0.5s, left 0.5s, top 0.5s;
+  }
+  body.layout-off & {
+    top: 100vh;
+    left: 0;
+
+    width: 100%;
+  }
+  body.layout-main & {
+    top: @navbar-height;
+    left: 0;
+
+    width: 100%;
+    height: calc(100% - @navbar-height);
+  }
+  body.layout-side & {
+    @media (min-width: 901px) {
+      top: 0;
+      left: 50vh;
+
+      width: calc(100vw - 50vh);
+    }
+    @media (max-width: 900px) {
+      top: 100vh;
+    }
+  }
+  >.content {
+    position: absolute;
+    left: 0;
+
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    width: 100%;
+    height: 100%;
+
+    outline: none;
+    body.animation-enabled & {
+      // transition: transform 5s linear;
+      transition: left 0.5s;
+    }
+    &.left {
+      // transform: translateX(-1000px);
+      left: -100vw;
+    }
+    &.right {
+      // transform: translateX(1000px);
+      left: 100vw;
+    }
+  }
+}

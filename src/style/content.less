@@ -1,0 +1,94 @@
+@import (reference) 'common/materialContent.less';
+@import (reference) 'common/button.less';
+@import 'variables.less';
+
+.content-container>.content {
+  .content-block:extend(#common.material-content all) {
+    body.animation-enabled & {
+      transition: max-width 0.5s, background-color 0.3s, color 0.3s;
+    }
+    @media (min-width: 901px) {
+      border-radius: 6px;
+      box-shadow: rgba(0,0,0,0.12) 0 0.55009px 2.4261px, rgba(0,0,0,0.24) 0 1.01372px 2.32903px;
+    }
+    &.warning {
+      background-color: var(--content-block-warning-color);
+    }
+    .page-switcher {
+      display: flex;
+
+      margin-top: 2vh;
+      >a:extend(#common.button all) {
+        flex: 1;
+
+        text-align: center;
+      }
+      a+a {
+        margin-left: 0.8em;
+      }
+    }
+  }
+  >.left-side-container, >.right-side-container {
+    @media (min-width: 1651px) {
+      position: absolute;
+      top: 0;
+
+      width: @side-block-width;
+
+      &.left-side-container {
+        left: calc((100vw - @content-block-width) / 2 - @side-block-width - @block-spacing);
+      }
+      &.right-side-container {
+        right: calc((100vw - @content-block-width) / 2 - @side-block-width - @block-spacing);
+      }
+      .content-block {
+        padding: @side-block-padding;
+      }
+    }
+    @media (min-width: 901px) {
+      .content-block {
+        margin-bottom: 1.7vw;
+      }
+    }
+  }
+  >div {
+    @media (min-width: 901px) {
+      width: @content-block-width;
+      max-width: 100%;
+      margin: 1.7vw auto @block-spacing auto;
+      body.layout-side & {
+        max-width: calc(100vw - 50vh - 6vw);
+      }
+      body.layout-main & {
+        max-width: calc(100vw - 6vw);
+      }
+    }
+    @media (max-width: 900px) {
+      width: 100vw;
+    }
+  }
+  >.slide-container {
+    position: relative;
+    >.height-holder {
+      body.animation-enabled & {
+        transition: height 0.5s;
+      }
+    }
+    &.in-transition>.content-block {
+      position: absolute;
+      left: 0;
+    }
+    >.content-block {
+      width: 100%;
+      body.animation-enabled & {
+        transition: left 0.5s;
+      };
+      &.left {
+        left: -100vw !important;
+      }
+      &.right {
+        left: 100vw !important;
+      }
+    }
+  }
+}

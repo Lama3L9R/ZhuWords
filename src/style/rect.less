@@ -1,0 +1,52 @@
+.rect-off-mobile() {
+  top: -30vmax;
+  left: 35vmax;
+
+  width: 90vh;
+  height: 200vmax;
+
+  transform: rotate(60deg);
+}
+.rect {
+  position: fixed;
+  body.animation-enabled & {
+    transition: background-color 0.3s, width 0.5s, height 0.5s, top 0.5s, left 0.5s, transform 0.5s;
+  }
+  body.layout-off & {
+    @media (min-width: 901px) {
+      top: -50vmax;
+      left: 35vmax;
+
+      width: 75vh;
+      height: 200vmax;
+
+      transform: rotate(40deg);
+    }
+    @media (max-width: 900px) {
+      .rect-off-mobile();
+    }
+  }
+  body.layout-main & {
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100%;
+
+    transform: rotate(0);
+  }
+  body.layout-side & {
+    @media (min-width: 901px) {
+      top: 0;
+      left: 50vh;
+
+      width: calc(100vw - 50vh);
+      height: 100%;
+
+      transform: rotate(0);
+    }
+    @media (max-width: 900px) {
+      .rect-off-mobile();
+    }
+  }
+}

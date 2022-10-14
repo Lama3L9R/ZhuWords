@@ -1,0 +1,53 @@
+div {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+
+  color: inherit;
+}
+p {
+  line-height: 1.6em;
+}
+li {
+  line-height: 1.6em;
+}
+@media (max-width: 900px) {
+  li {
+    margin-left: -0.8em;
+  }
+}
+img {
+  width: 100%;
+
+  border-radius: 6px;
+}
+h1 {
+  font-size: 2.2em;
+}
+h2 {
+  font-size: 1.8em;
+}
+h3 {
+  font-size: 1.55em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.25em;
+}
+h6 {
+  font-size: 1.1em;
+}
+
+@less-margin: 0.6em;
+@more-margin: 0.8em;
+h1, h2, h3, h4, h5, h6 {
+  margin-top: @more-margin;
+  margin-bottom: @less-margin;
+}
+p, :not(li)>ul, :not(li)>ol {
+  margin-top: @less-margin;
+  margin-bottom: @more-margin;
+}

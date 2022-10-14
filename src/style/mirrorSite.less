@@ -1,0 +1,39 @@
+.mirror-site-modal>.button-container>a {
+  width: 100%;
+
+  text-align: left;
+  >h2 {
+    margin: 0 0 0.2em 0;
+  }
+  p {
+    margin: 0;
+
+    line-height: 1.4em;
+
+    >.http-warning {
+      color: var(--content-block-warning-color);
+      font-weight: bold;
+    }
+  }
+}
+
+.mirror-hint {
+  position: fixed;
+  right: 0.4em;
+  bottom: 0.4em;
+
+  color: var(--key);
+  >span {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  opacity: 0;
+  body.layout-off & {
+    opacity: 0.6;
+  }
+
+  body.animation-enabled & {
+    transition: opacity 0.3s;
+  }
+}

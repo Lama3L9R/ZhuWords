@@ -1,0 +1,63 @@
+@import (reference) 'common/layerCard.less';
+@import (reference) 'common/button.less';
+
+.content-container>.content .content-block.comments {
+  >p {
+    margin-bottom: 0;
+  }
+  >.create-comment:extend(#common.button all) {
+    margin-top: 2vh;
+
+    font-size: 2em;
+    line-height: 1em;
+  }
+  >.comment:extend(#common.layer-card all) {
+    position: relative;
+
+    margin-top: 2vh;
+
+    >.avatar {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 3px;
+    }
+    >.author {
+      position: absolute;
+      top: 3vh;
+      left: calc(44px + 4.5vh);
+
+      font-size: 1.15em;
+    }
+    >.time {
+      position: absolute;
+      top: calc(3vh + 2.3em);
+      left: calc(44px + 4.5vh);
+
+      font-size: 0.7em;
+    }
+    >p {
+      margin-bottom: 0;
+    }
+    body.animation-enabled &>.action {
+      transition: background-color 0.12s linear, opacity 0.12s linear;
+    }
+    >.action {
+      float: right;
+
+      padding: 5px 10px;
+
+      cursor: pointer;
+
+      opacity: 0.8;
+      border-radius: 3px;
+    }
+    >.action:hover {
+      background-color: var(--key-opacity-01);
+    }
+
+    >.action:active {
+      background-color: var(--key-opacity-05);
+    }
+  }
+}

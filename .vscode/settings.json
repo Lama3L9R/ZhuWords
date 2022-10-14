@@ -1,0 +1,15 @@
+{
+  "cSpell.words": [
+    "MAKAI",
+    "Unparsed",
+    "WTCD",
+    "scrollable",
+    "sfnf",
+    "strlen",
+    "transitionend",
+    "undecide"
+  ],
+  "sort-imports.on-save": false,
+  "editor.defaultFormatter": "eg2.tslint",
+  "tslint.autoFixOnSave": true
+}

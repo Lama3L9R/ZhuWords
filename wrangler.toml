@@ -1,0 +1,10 @@
+name = "wearable_technology"
+type = "webpack"
+account_id = "!AccountID"
+workers_dev = false
+route = "wt.0w0.bid/*"
+zone_id = "!ZoneID"
+
+[site]
+bucket = "./public"
+entry-point = "workers-site"

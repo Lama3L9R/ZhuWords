@@ -1,0 +1,29 @@
+image: node:14
+
+stages:
+  - build
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  GIT_DEPTH: 500
+build: 
+  stage: build
+  cache:
+    paths:
+      - node_modules/
+  script:
+    - npm install
+    - npm run lint
+    - npm run deobfuscate-resources
+    - npm run build
+    - mkdir public
+    - mv dist/* public
+    - gzip -k -9 $(find public -type f -not -name "*.jpg" -not -name "*.png")
+    - npm --prefix ./workers-site install ./workers-site
+    - npm install @cloudflare/wrangler
+    - sed -i "s/\!AccountID/$CF_AID/g" wrangler.toml
+    - sed -i "s/\!ZoneID/$CF_ZID/g" wrangler.toml
+    - npx wrangler publish
+    - npm install netlify-cli
+    - npx netlify deploy --dir=public --prod
+  only:
+    - master

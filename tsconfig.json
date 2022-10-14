@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "downlevelIteration": true,
+    "lib": [ "es2020", "dom" ],
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "outDir": "ts-out",
+    "rootDir": "src",
+    "strict": true,
+    "target": "es2016",
+    "jsx": "react",
+    "jsxFactory": "$e"
+  }
+}

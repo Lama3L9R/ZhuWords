@@ -1,0 +1,121 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Wearable Technology's Conditional Document (WTCD)",
+	"patterns": [
+		{ "include": "#contentSection" },
+		{ "include": "#logicSection" },
+		{ "include": "#goto" },
+		{ "include": "#declare" },
+		{ "include": "#keywords" },
+		{ "include": "#languageConstants" },
+		{ "include": "#comments" },
+		{ "include": "#braces" },
+		{ "include": "#blockExpressions" },
+		{ "include": "#operators" },
+		{ "include": "#tags" },
+		{ "include": "#strings" },
+		{ "include": "#stdFunctions" },
+		{ "include": "#variables" },
+		{ "include": "#semicolon" }
+	],
+	"repository": {
+		"contentSection": {
+			"name": "meta.embedded.block.markdown",
+			"patterns": [{ "include": "text.html.markdown" }],
+			"begin": "^(---<<<\\s+)([a-zA-Z_][a-zA-Z_0-9]*)(?:(@)([0-9\\-]+))?(\\s+>>>---)$",
+			"beginCaptures": {
+				"1": { "name": "punctuation.definition" },
+				"2": { "name": "entity.name.type.class" },
+				"3": { "name": "keyword.operator.wtcd" },
+				"4": { "name": "constant.numeric.wtcd" },
+				"5": { "name": "punctuation.definition" }
+			},
+			"end": "(?=^---<<<\\s+[a-zA-Z_][a-zA-Z_0-9]*(?:@[0-9\\-]+)?\\s+>>>---$)"
+		},
+		"logicSection": {
+			"name": "storage.type.class.section.wtcd",
+			"match": "\\bsection\\s+([a-zA-Z_][a-zA-Z_0-9]*)",
+			"captures": {
+				"1": { "name": "entity.name.type.class.section.wtcd" }
+			}
+		},
+		"goto": {
+		  "patterns": [{
+				"name": "keyword.control.wtcd",
+				"match": "\\bgoto\\s+([a-zA-Z_][a-zA-Z_0-9]*)",
+				"captures": {
+					"1": { "name": "entity.name.type.class.section.wtcd" }
+				}
+			}, {
+				"name": "keyword.control.wtcd",
+				"match": "\\bgoto\\s*(\\[)((?:\\s*[a-zA-Z_][a-zA-Z_0-9]*)*\\s*)(\\])",
+				"captures": {
+					"1": { "name": "meta.brace.wtcd" },
+					"2": { "name": "entity.name.type.class.section.wtcd" },
+					"3": { "name": "meta.brace.wtcd" }
+				}
+			}]
+		},
+		"declare": {
+			"name": "storage.type.class.declare.wtcd",
+			"match": "\\bdeclare\\b"
+		},
+		"keywords": {
+			"name": "keyword.control.wtcd",
+			"match": "\\$|\\b(number|boolean|string|action|then|selection|choice|yield|exit|return|function|switch|list|while|do|if|else|continue|break)\\b"
+		},
+		"languageConstants": {
+			"patterns": [{
+				"name": "constant.language.wtcd",
+				"match": "\\b(null|true|false)\\b"
+			}, {
+				"name": "constant.numeric.wtcd",
+				"match": "(?:0|[1-9][0-9]*(?:\\.[0-9]*)?)"
+			}]
+		},
+		"comments": {
+			"name": "comment.line.double-slash.wtcd",
+			"match": "//.*$"
+		},
+		"braces": {
+			"name": "meta.brace.wtcd",
+			"match": "\\[|\\]|\\(|\\)"
+		},
+		"blockExpressions": {
+			"name": "punctuation.definition.block",
+			"match": "{|}"
+		},
+		"operators": {
+			"name": "keyword.operator.wtcd",
+			"match": "[+\\-*\\/^&|=><!?:%.]+"
+		},
+		"tags": {
+			"name": "variable.other.object.property",
+			"match": "#[a-zA-Z_][a-zA-Z_0-9]*"
+		},
+		"strings": {
+			"name": "string.quoted.double.wtcd",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.wtcd",
+					"match": "\\\\."
+				}
+			]
+		},
+		"stdFunctions": {
+			"name": "support.function",
+			"match": "\\b(?:contentAddParagraph|contentAddImage|contentAddUnorderedList|contentAddOrderedList|contentAddHeader|contentAddTable|contentAddHorizontalRule|print|assert|assertError|timeStart|timeEnd|listSet|listForEach|listMap|listCreateFilled|listChunk|listFilter|listSplice|listSlice|listLength|listIndexOf|listIncludes|listFindIndex|mathMin|mathMax|mathFloor|mathCeil|random|randomInt|randomBoolean|randomBiased|stringLength|stringFormatNumberFixed|stringFormatNumberPrecision|stringSplit|stringSubByLength|stringSubByIndex|readerSetPinned|readerUnsetPinned|readerSetStateDesc|readerUnsetStateDesc|canvasCreate|canvasPutImage|canvasPutImagePart|canvasOutput|canvasClear|canvasSetFont|canvasSetFillStyle|canvasFillText|canvasFillRect|canvasSetStrokeStyle|canvasSetLineWidth|canvasStrokeText)\\b"
+		},
+		"variables": {
+			"name": "variable.other.readwrite.wtcd",
+			"match": "\\b[a-zA-Z_][a-zA-Z_0-9]*\\b"
+		},
+		"semicolon": {
+			"name": "invalid.illegal",
+			"match": ";"
+		}
+	},
+	"scopeName": "source.wtcd"
+}

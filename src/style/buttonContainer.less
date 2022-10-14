@@ -1,0 +1,33 @@
+@import (reference) 'common/button.less';
+.button-container {
+  >div:extend(#common.button all), >a:extend(#common.button all) {
+    flex-grow: 1;
+
+    margin: 0.4em !important;
+
+    word-break: keep-all;
+
+    &.rich {
+      body.animation-enabled & {
+        transition: background-color 0.3s, box-shadow 0.3s, color 0.3s;
+      }
+      &.disabled {
+        color: var(--key-opacity-05);
+        background-color: var(--key-opacity-004);
+        box-shadow: none;
+      }
+      &.selected {
+        border: white 0.2em;
+        background-color: var(--button-color);
+        box-shadow: rgba(0,0,0,0) 0 0 0, 0 0 0 2px var(--key) inset;
+      }
+    }
+  }
+
+  & {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: -0.4em;
+  }
+}

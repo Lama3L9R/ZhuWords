@@ -1,0 +1,41 @@
+table {
+  position: relative;
+
+  margin: 1em 0;
+
+  border-spacing: 0;
+
+  color: inherit;
+}
+tbody>tr:nth-child(odd) {
+  background-color: var(--key-opacity-01);
+}
+td, th {
+  line-height: 1.6em;
+}
+th {
+  position: sticky;
+  top: 0;
+
+  white-space: nowrap;
+
+  body.animation-enabled & {
+    transition: background-color 0.3s;
+  }
+  background-color: var(--paper-bg-color);
+
+  line-height: 2.0;
+}
+@media (min-width: 901px) {
+  td, th {
+    padding: 0 1em;
+  }
+}
+@media (max-width: 900px) {
+  table {
+    width: 100%;
+  }
+  td, th {
+    padding: 0 0.2em;
+  }
+}
