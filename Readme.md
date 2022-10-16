@@ -4,7 +4,33 @@
 
 你可能会问这个仓库的提交日志去哪里了？
 
-答：曾经《可穿戴科技》就储存在 Github 上后仓库被封禁迁移到了其他 Git，我为了保平安于是选择了删除所有提交日志
+答：曾经《可穿戴科技》就储存在 Github 上后仓库被封禁迁移到了其他 Git，我为了保仓库、账号平安于是选择了删除所有提交日志和相关文章
 
-> 本站是由著名小说 [可穿戴科技](https://wt.tepis.me/) 提供代码支持([原作者仓库](https://gitgud.io/RinTepis/wearable-technology/-/tree/master/))，所有源代码版权均属于原作者，若有侵权，请联系 `i@lama.icu` 或 Telegram: `@qumolama`。
+### 如何贡献？
+向这个仓库提交 `Pull-Request`，或者直接私信lama让他来帮你提交。
+
+**还是不懂，具体一点可以吗？**
+
+1. 配置好 git 客户端、SSH公私钥并上传到Github
+2. Fork这个仓库并克隆：`$ git clone git@github.com:<你的github名字>/ZhuWords.git`
+3. 仿照其他页面在 `chapters` 文件夹中进行添加/修改
+4. 添加所有文件 `$ git add .`
+5. 创建一个提交 `$ git commit -S -m "<提交信息>"`（推荐配置提交签名，若未配置则删除`-S`）
+6. 推送提交 `$ git push`
+7. 向主仓库提交 `Pull-Request`
+
+本地浏览页面、构建生产环境页面请查看 构建和开发方法
+
+### 构建和开发方法：
+
+确保您已安装 [Node.js LTS](https://nodejs.org)和 `Yarn` (通过npm安装：`$ npm i --location=global yarn`)
+
+初始化项目：`$ yarn install`
+
+启动实时更新 Dev服务器：`$ yarn watch`
+
+构建生产环境：`$ yarn build` 输出将会在 `./dist` 中
+
+
+> 本站是由著名小说 [可穿戴科技](https://wt.tepis.me/) 提供代码支持([原作者仓库](https://gitgud.io/RinTepis/wearable-technology/-/tree/master/))，所有源代码版权均属于原作者，若有侵权，请联系 `i@lama.icu` 或 Telegram: `@qumolama` 删除。
 > 所有文章均以 [Anti-996](https://github.com/996icu/996.ICU/blob/master/LICENSE) 协议开源，若想了解有关 反对996内容请访问：[https://996.icu](https://996.icu)。若想为此项目做出你的一份贡献，联系 `i@lama.icu` 或 Telegram: `@qumolama`。

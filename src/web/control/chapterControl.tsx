@@ -185,7 +185,7 @@ function addAuthorsInfoBlock(content: Content, chapter: Chapter) {
                 ' 协议发布。转载时请注明以下信息：',
               ),
               h('pre.wrapping', h('code',
-                                  '本文内容摘自《朱语》（https://TODO.URL.REPLACEME）。' +
+                                  '本文内容摘自《朱语》（https://zw.lama.icu）。' +
                   chapter.authors.map(authorInfo => authorInfo.role + '：' + authorInfo.name).join('，') +
                   '。本文以 Anti-996 协议发布，转载请注明上述所有信息。'
               )),

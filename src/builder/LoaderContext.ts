@@ -2,6 +2,7 @@ import { readFile, stat } from 'fs-extra';
 import * as MDI from 'markdown-it';
 import * as mdiReplaceLinkPlugin from 'markdown-it-replace-link';
 import * as mdiRubyPlugin from 'markdown-it-ruby';
+import * as mdiMathJaxPlugin from 'markdown-it-mathjax3';
 import { dirname, posix, resolve } from 'path';
 import { Argv } from '.';
 import { isCompressibleImage, isDocument, isResource } from '../fileExtensions';
@@ -112,7 +113,8 @@ export class LoaderContext {
       },
     } as MDI.Options)
       .use(mdiReplaceLinkPlugin)
-      .use(mdiRubyPlugin);
+      .use(mdiRubyPlugin)
+      .use(mdiMathJaxPlugin);
   }
 
   public shouldBuildLite() {

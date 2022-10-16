@@ -132,14 +132,14 @@ export async function buildLite(data: Data) {
             `<a href="${pathToLiteRoot}..$1">【精简版不支持的功能，点击将离开精简版】$2</a>`,
           );
         await writeFile(join(distLiteDir, 'chapters', node.htmlRelativePath), html);
-        siteMap.push('https://TODO.URL.REPLACEME/lite/chapters/' + node.htmlRelativePath);
+        siteMap.push('https://zw.lama.icu/lite/chapters/' + node.htmlRelativePath);
       }
     }
   }
 
   const siteMap = [
-      'https://TODO.URL.REPLACEME',
-      'https://TODO.URL.REPLACEME/lite/entry.html',
+      'https://zw.lama.icu',
+      'https://zw.lama.icu/lite/entry.html',
   ];
 
   await buildFolder(data.chapterTree, 0, siteMap);
