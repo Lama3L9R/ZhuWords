@@ -114,7 +114,7 @@ export class LoaderContext {
     } as MDI.Options)
       .use(mdiReplaceLinkPlugin)
       .use(mdiRubyPlugin)
-      .use(mdiMathJaxPlugin);
+      .use(mdiMathJaxPlugin); // TODO: 从我的垃圾桶里找到我n年以前做的canvas画函数图像的库并迁移到 mdi
   }
 
   public shouldBuildLite() {
