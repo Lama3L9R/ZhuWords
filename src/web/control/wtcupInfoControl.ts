@@ -10,19 +10,19 @@ export function insertVoteBlock(content: Content, relativePath: string) {
   if (Date.now() < voteDate || Date.now() > endDate) {
     return;
   }
-  const title = isCandidate(relativePath) ? '本文正在参与第二届西塔杯年度最佳已完结文章评选！' : '第二届西塔杯年度最佳已完结文章评选正在进行中！';
-  content.addBlock({
-    initElement: h('div',
-      h('h3', title),
-      h('p',
-        '评选结果由投票决定，欢迎',
-        h('a.regular', {
-          href: pageHref('wtcup-vote'),
-        }, '点此参与投票'),
-        '。'
-      ),
-    ),
-  });
+//   const title = isCandidate(relativePath) ? '本文正在参与第二届西塔杯年度最佳已完结文章评选！' : '第二届西塔杯年度最佳已完结文章评选正在进行中！';
+//   content.addBlock({
+//     initElement: h('div',
+//       h('h3', title),
+//       h('p',
+//         '评选结果由投票决定，欢迎',
+//         h('a.regular', {
+//           href: pageHref('wtcup-vote'),
+//         }, '点此参与投票'),
+//         '。'
+//       ),
+//     ),
+//   });
 }
 
 export function loadWtcupInfoPre(content: Content, relativePath: string) {

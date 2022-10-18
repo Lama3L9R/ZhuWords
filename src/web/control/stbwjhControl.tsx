@@ -8,11 +8,10 @@ export function loadStbwjhInfo(content: Content) {
   if (Date.now() > endDate) {
     return;
   }
-  content.addBlock({
+  content.addBlock({ // TODO: 嗯... 我不理解为什么是写死的，暂且先删了吧
     initElement: (
       <div>
-        <h3>2022.10 色图补完计划投票进行中！</h3>
-        <p>想看到你最喜欢的色情小说配图吗？赶紧来参加投票吧！<a className='regular' href={ chapterHref('META/色图补完计划.html') }>点此查看详情</a></p>
+
       </div>
     ),
   });
