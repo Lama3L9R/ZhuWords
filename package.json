@@ -4,13 +4,14 @@
     "description": "《可穿戴科技》网页构建脚本",
     "main": "builder/index.js",
     "scripts": {
+        "applyLibraryPatches": "ts-node src/builder/libraryPatches.ts",
         "compileTypeScriptOnce": "tsc",
         "buildChaptersProduction": "node ts-out/builder/index.js --production",
         "buildWebScript": "browserify ts-out/web/index.js -o dist/bundle.max.js",
         "minifyWebScript": "terser dist/bundle.max.js --compress --mangle --keep-fnames -o dist/bundle.js",
         "buildStyle": "lessc src/style/index.less dist/index.css",
-        "build": "run-s compileTypeScriptOnce buildStyle buildWebScript minifyWebScript buildChaptersProduction",
-        "buildDev": "run-s compileTypeScriptOnce buildStyle buildWebScript minifyWebScript buildChaptersDev",
+        "build": "run-s applyLibraryPatches compileTypeScriptOnce buildStyle buildWebScript minifyWebScript buildChaptersProduction",
+        "buildDev": "run-s applyLibraryPatches compileTypeScriptOnce buildStyle buildWebScript minifyWebScript buildChaptersDev",
         "buildChaptersDev": "node ts-out/builder/index.js --build-lite",
         "dev-watch-staticServer": "cd dist && static-server -p 2333 -o --no-cache",
         "dev-watch-staticFileCopier": "fucking-fixed-sync-files --watch --no-delete static dist",
@@ -66,6 +67,7 @@
         "npm-run-all": "^4.1.5",
         "open-cli": "^6.0.1",
         "static-server": "^2.2.1",
+        "ts-node": "^10.9.1",
         "tslint": "^6.1.3",
         "watchify": "^4.0.0"
     }

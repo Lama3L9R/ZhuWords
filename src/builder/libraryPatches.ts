@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import { log } from './indentConsole';
 
 const patches: Array<{file: string, patcher: (file: fs.PathLike) => void}> = [
     { file: "markdown-it-mathjax3/index.d.ts", patcher: mathjax3Patch }
@@ -21,7 +20,6 @@ const PatchTools = {
 }
 
 export function applyPatches(projectRoot: fs.PathLike) {
-    log(fs.realpathSync(projectRoot + "node_modules/"))
     for (const patch of patches) {
         patch.patcher(projectRoot + "node_modules/" + patch.file)
     }
@@ -43,3 +41,5 @@ export = plugin;
 `.trim()
     PatchTools.replaceAll(file, fixedTypeDefFile)
 }
+
+applyPatches("./")

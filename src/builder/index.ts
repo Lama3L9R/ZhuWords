@@ -12,14 +12,10 @@ import { LoaderContext } from './LoaderContext';
 import { load } from './loaders/Loader';
 import { Stats } from './Stats';
 import { loadTagsSpec, validateAndBuildTagMap } from './tagsSpecParser';
-import {execAsyncWithRetry} from './execAsyncWithRetry';
+import { execAsyncWithRetry } from './execAsyncWithRetry';
 import chokidar = require('chokidar');
 import yargs = require('yargs');
 import { buildLite } from './buildLite';
-import { applyPatches } from "./libraryPatches";
-
-log("Applying dependencies patches...")
-applyPatches("./")
 
 const argv = yargs.options({
   production: { type: 'boolean', default: false },
