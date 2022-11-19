@@ -11,6 +11,12 @@ export const mirrorSites: Array<MirrorSite> = [
         origin: 'https://bypass.zw.lama.icu',
         provider: 'Lama',
         technology: 'Aliyun HK',
+    },
+    {
+        name: '寄の镜像站',
+        origin: 'https://zw.fuckyou.icu/',
+        provider: 'nofated',
+        technology: '寄的魔法'
     }
 ];
 
