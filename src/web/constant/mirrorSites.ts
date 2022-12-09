@@ -7,12 +7,6 @@ export interface MirrorSite {
 
 export const mirrorSites: Array<MirrorSite> = [
     {
-        name: 'Bypass-CloudFlare CDN（请忽略SSL警告）',
-        origin: 'https://bypass.zw.lama.icu',
-        provider: 'Lama',
-        technology: 'Aliyun HK',
-    },
-    {
         name: '寄の镜像站',
         origin: 'https://zw.fuckyou.icu/',
         provider: 'nofated',
@@ -24,7 +18,7 @@ export const mainSite: MirrorSite = {
   name: 'zw.lama.icu（主站）',
   origin: 'https://zw.lama.icu',
   provider: 'Lama',
-  technology: 'Aliyun HK with CloudFlare CDN',
+  technology: 'Aliyun HK',
 };
 
 export const mirrorSitesPlusMainSite: Array<MirrorSite> = [mainSite, ...mirrorSites];
